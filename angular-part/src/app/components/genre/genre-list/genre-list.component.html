@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+             <th scope="col">Created at</th>            
+            <th scope="col">Updated at</th>
+            <th scope="col">Genres</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let genre of genres | async">
+            <th scope="row">{{ genre.id }}</th>
+            <td>{{ genre.createdAt | amTimeAgo}}</td>
+            <td>{{ genre.updatedAt | amTimeAgo }}</td>
+            <td>{{ genre.genrename }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteGenre(genre.id)">
+                Delete
+              </button>
+
+              <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#exampleModal"
+                (click)="genreDetails(genre.id)">
+                Update genre
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

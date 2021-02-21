@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+             <th scope="col">Created at</th>            
+            <th scope="col">Updated at</th>
+            <th scope="col">Countries</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let country of countries | async">
+            <th scope="row">{{ country.id }}</th>            
+            <td>{{ country.createdAt | amTimeAgo}}</td>
+            <td>{{ country.updatedAt | amTimeAgo }}</td>
+            <td>{{ country.countryname }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteCountry(country.id)">
+                Delete
+              </button>
+
+              <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#exampleModal"
+                (click)="countryDetails(country.id)">
+                Update genre
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

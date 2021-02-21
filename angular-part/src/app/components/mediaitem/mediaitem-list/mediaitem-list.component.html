@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+      <table class="table table-responsive-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Updated at</th>
+            <th scope="col">Mediaitems</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mediaitem of mediaitems | async">
+            <th scope="row">{{ mediaitem.id }}</th>
+            <td>{{ mediaitem.createdAt | amTimeAgo }}</td>
+            <td>{{ mediaitem.updatedAt | amTimeAgo }}</td>
+            <td>{{ mediaitem.mediaitemname }}</td>
+            <td class="d-flex align-items-center">
+              <button class="btn btn-danger" (click)="deleteMediaitem(mediaitem.id)">
+                Delete
+              </button>
+              <button type="button" class="btn btn-primary ml-4 buttonstyle" data-toggle="modal" data-target="#exampleModal"
+                (click)="mediaitemDetails(mediaitem.id)">
+                Update mediaitem
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="font-weight-bold mb-3">Filters</div>
+      <form (ngSubmit)="searchMediaitem()" class="form-inline my-2 my-lg-0">
+        <input type="search" name="search"  [(ngModel)]="mediaitemt" class="form-control mr-sm-2 w-25" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+      <div *ngIf="mediaitemnamesearch" class="mt-5">
+        <table class="table table-responsive-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Media item name</th>
+              <th scope="col">Artist name</th>
+              <th scope="col">Provider name</th>
+              <th scope="col">Country name</th>
+              <th scope="col">Genre name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let search of mediaitemnamesearch">
+              <td>{{ search.mediaitemname }}</td>
+              <td>{{ search.artistname }}</td>
+              <td>{{ search.providername }}</td>
+              <td>{{ search.countryname }}</td>
+              <td>{{ search.genrename }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="mediaitemnamesearch === null" class="alert alert-danger mt-5">
+        0 results returned
+      </div>
+      <div class="mt-5 mb-2">Sort by</div>
+      <select class="form-control w-25 custom-select" type="submit" [ngModel]="selectedValue" (ngModelChange)="onSelectedChange($event)">
+        <option *ngFor="let option of options" [ngValue]="option">
+          {{ option }}
+        </option>
+      </select>
+
+      <div class="mt-5 mb-2">Genre</div>
+      <select [ngModel]="genrest" class="form-control w-25 custom-select" (ngModelChange)="onSelectedGenreChange($event)" type="submit">
+        <option *ngFor="let genre of genres | async" [ngValue]="genre">
+          {{ genre.genrename }}
+        </option>
+      </select>
+
+      <div class="mt-5 mb-2">Country</div>
+      <select [ngModel]="countryt" class="form-control w-25 custom-select" (ngModelChange)="onSelectedCountryChange($event)" type="submit">
+        <option *ngFor="let country of countries | async" [ngValue]="country">
+          {{ country.countryname }}
+        </option>
+      </select>
+    </div>
+    </div>
+  </div>
+</div>

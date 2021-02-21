@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="genre">Genres</a>
+          <a class="dropdown-item" routerLink="artists">Artists</a>
+          <a class="dropdown-item" routerLink="country">Countries</a>
+          <a class="dropdown-item" routerLink="provider">Providers</a>
+          <a class="dropdown-item" routerLink="mediaitem">Media items</a>
+        </div>
+      </li>
+    </ul>
+       <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="add-genre">Add genres</a>
+          <a class="dropdown-item" routerLink="add_artist">Add artists</a>
+          <a class="dropdown-item" routerLink="add_country">Add countries</a>
+          <a class="dropdown-item" routerLink="add_provider">Add providers</a>
+          <a class="dropdown-item" routerLink="add_mediaitem">Add media items</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+
+
+<!-- 
+
+
+
+
+
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Home</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="genre" class="nav-link">Genres</a>
+      </li>
+       <li class="nav-item">
+        <a routerLink="add-genre" class="nav-link">Add genre</a>
+      </li>
+       <li class="nav-item">
+        <a routerLink="artists" class="nav-link">Artists</a>
+      </li>     
+      <li class="nav-item">
+        <a routerLink="add_artist" class="nav-link">Add artist</a>
+      </li>
+        <li class="nav-item">
+        <a routerLink="country" class="nav-link">Countries</a>
+      </li>     
+      <li class="nav-item">
+        <a routerLink="add_country" class="nav-link">Add country</a>
+      </li>
+        <li class="nav-item">
+        <a routerLink="provider" class="nav-link">Providers</a>
+      </li>     
+      <li class="nav-item">
+        <a routerLink="add_provider" class="nav-link">Add provider</a>
+      </li>
+        <li class="nav-item">
+        <a routerLink="mediaitem" class="nav-link">Mediaitems</a>
+      </li>     
+      <li class="nav-item">
+        <a routerLink="add_mediaitem" class="nav-link">Add mediaitem</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->

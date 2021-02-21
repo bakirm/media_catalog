@@ -1,0 +1,65 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <form (ngSubmit)="saveMediaitem()" name="savemediaitem">
+        <div class="form-group">
+          <label for="mediaitemname">Media item name</label>
+          <input type="text" class="form-control mt-2" id="title" required [(ngModel)]="mediaitem.mediaitemname"
+            name="mediaitemname" />
+        </div>
+        <div class="mt-5">Artist</div>
+        <select [(ngModel)]="artistt" class="custom-select form-control mt-2" name="artistname">
+          <option [ngValue]="undefined" disabled selected>
+            Please select one option
+          </option>
+          <option *ngFor="let artist of artists | async" [ngValue]="artist">
+            {{ artist.artistname }}
+          </option>
+        </select>
+        <div class="mt-5">Country</div>
+        <select [(ngModel)]="countryt" class="custom-select form-control mt-2" name="countryname">
+          <option [ngValue]="undefined" disabled selected>
+            Please select one option
+          </option>
+          <option *ngFor="let country of countries | async" [ngValue]="country">
+            {{ country.countryname }}
+          </option>
+        </select>
+        <div class="mt-5">Genre</div>
+        <select [(ngModel)]="genrest" class="custom-select form-control mt-2" name="genrename">
+          <option [ngValue]="undefined" disabled selected>
+            Please select one option
+          </option>
+          <option *ngFor="let genre of genres | async" [ngValue]="genre">
+            {{ genre.genrename }}
+          </option>
+        </select>
+        <div class="mt-5">Provider</div>
+        <select [(ngModel)]="providert" class="custom-select form-control mt-2" name="providername">
+          <option [ngValue]="undefined" disabled selected>
+            Please select one option
+          </option>
+          <option *ngFor="let provider of providers | async" [ngValue]="provider">
+            {{ provider.providername }}
+          </option>
+        </select>
+
+        <button class="btn btn-success mt-5" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div *ngIf="submitted">
+      <button class="btn btn-success" (click)="newMediaitem()">
+        Add new media item
+      </button>
+      <div class="alert alert-success mt-5" role="alert">
+        Media item was submitted successfully!
+      </div>
+    </div>
+    <div *ngIf="submittedsame" class="mt-5">
+      <div class="alert alert-danger" role="alert">
+        Media item already exists!
+      </div>
+    </div>
+  </div>
+</div>

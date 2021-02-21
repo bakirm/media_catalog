@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Created at</th>            
+            <th scope="col">Updated at</th>
+            <th scope="col">Artists</th>
+            <th scope="col">Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let artist of artists | async">
+            <th scope="row">{{ artist.id }}</th>
+             <td>{{ artist.createdAt | amTimeAgo}}</td>
+            <td>{{ artist.updatedAt | amTimeAgo }}</td>
+            <td>{{ artist.artistname }}</td>
+           
+            <td>
+              <button class="btn btn-danger" (click)="deleteArtist(artist.id)">
+                Delete
+              </button>
+
+              <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#exampleModal"
+                (click)="artistDetails(artist.id)">
+                Update artist
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
